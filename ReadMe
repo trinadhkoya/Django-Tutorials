@@ -1,0 +1,59 @@
+When ever we hit the browser  with the domain name /root
+1)searches for the Urls.py section and checks for the suffixes like ROOT/admn or/login or /logout
+it ignores the part of URL like trinadhkoya.info.it only searches for kind of /contact ,/aboutme ,/gallery,/hello
+
+Activating Models is simple
+once we are done with creating modules
+just chekc whether your app in settngs>INSTALLED_APPS or not
+>python manage.py runserver(befor thet check whther it migrated or not)
+
+
+PS F:\Python WorkSpace\website> python manage.py migrate
+Operations to perform:
+  Apply all migrations: auth, contenttypes, sessions, admin
+Running migrations:
+  No migrations to apply.
+  Your models have changes that are not yet reflected in a migration, and so won't be applied.
+  Run 'manage.py makemigrations' to make new migrations, and then re-run 'manage.py migrate' to apply them.
+PS F:\Python WorkSpace\website> python manage.py makemigrations music
+Migrations for 'music':
+  0001_initial.py:
+    - Create model Album
+    - Create model Song
+PS F:\Python WorkSpace\website> python manage.py  sqlmigrate music 0001
+BEGIN;
+--
+-- Create model Album
+--
+CREATE TABLE "music_album" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "artist" varchar(250) NOT NULL, "album_titl
+e" varchar(500) NOT NULL, "genre" varchar(100) NOT NULL, "album_logo" varchar(1000) NOT NULL);
+--
+-- Create model Song
+--
+CREATE TABLE "music_song" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "fie_type" varchar(10) NOT NULL, "song_title
+" varchar(250) NOT NULL, "album_id" integer NOT NULL REFERENCES "music_album" ("id"));
+CREATE INDEX "music_song_95c3b9df" ON "music_song" ("album_id");
+
+COMMIT;
+PS F:\Python WorkSpace\website>now run the server ,hopefully you know how to run
+then we get the message like this
+Performing system checks...
+
+
+
+System check identified no issues (0 silenced).
+July 07, 2016 - 13:17:41
+Django version 1.9.7, using settings 'website.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+
+
+
+
+
+
+
+
+
+
