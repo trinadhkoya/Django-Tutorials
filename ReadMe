@@ -55,5 +55,34 @@ Quit the server with CTRL-BREAK.
 
 
 
+PS F:\Python WorkSpace\website> python manage.py shell
+Python 3.4.4 (v3.4.4:737efcadf5a6, Dec 20 2015, 19:28:18) [MSC v.1600 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from music.models import Album,Song
+>>> Album.objects.all()
+[<Album: Trouble-Akon>, <Album: Connectons-Trinadh>]
+>>> Album.objects.filter(id=1)
+[<Album: Trouble-Akon>]
+>>> Album.objects.filter(id=2)
+[<Album: Connectons-Trinadh>]
+>>> Album.objects.filter(id=3)
+[]
+>>> Album.object.filter(artist__startswith='trinadh')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'Album' has no attribute 'object'
+>>> Album.objects.filter(artist__startswith='trinadh')
+[<Album: Connectons-Trinadh>]
+>>>
+
+
+
+
+
+Admin Dashboard
+
+admin
+pass1234
 
 

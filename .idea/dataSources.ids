@@ -102,6 +102,23 @@
       <primary-key columns="session_key"/>
       <index name="django_session_de54fa62" unique="true" columns="expire_date"/>
     </table>
+    <table name="music_album" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="artist" sqlType="VARCHAR(250)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="album_title" sqlType="VARCHAR(500)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="genre" sqlType="VARCHAR(100)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="album_logo" sqlType="VARCHAR(1000)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="music_song" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="fie_type" sqlType="VARCHAR(10)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="song_title" sqlType="VARCHAR(250)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="album_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_music_song_1" columns="album_id" ref-table="music_album" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="music_song_95c3b9df" unique="true" columns="album_id"/>
+    </table>
     <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
       <column name="name" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="seq" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
