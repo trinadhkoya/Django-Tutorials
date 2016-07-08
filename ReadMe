@@ -86,3 +86,30 @@ admin
 pass1234
 
 
+PS F:\Python WorkSpace\website> python manage.py shell
+Python 3.4.4 (v3.4.4:737efcadf5a6, Dec 20 2015, 19:28:18) [MSC v.1600 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from music.models import Album,Song
+>>> album=Album.objects.get(pk=4)
+
+>>> song=Song();
+>>> song.album=album;
+>>> song.file_type='m4r'
+>>> song.song_title='Gelupu Thalupule'
+>>> song.save()
+
+>>> album.song_set.create(file_type='mp3',song_title='Ale ale')
+<Song: Ale ale>
+>>> song.album=album;
+>>> song.file_type='m4r';
+>>> song.song_title='Peace Train';
+>>> song.save()
+>>> newalbum=Album();
+>>> newalbum.artist='Cart Steven'
+>>> newalbum.Song='Peace Train'
+>>> newalbum.album_title='One More Time'
+>>> newalbum.album_logo='https://lh4.googleusercontent.com/-XiEsv4O9GQk/AAAAAAAAAAI/AAAAAAAADyM/uNIwnmYjH8E/s0-c-k-no-ns/photo.jpg'
+>>> newalbum.save()
+>>> album1=Album.objects.get(pk=1);
+>>> song=Song()

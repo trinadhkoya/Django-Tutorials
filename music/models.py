@@ -15,6 +15,10 @@ class Album(models.Model):
 
 
 class Song(models.Model):
+    # these are not only fileds these are coloumns in your database
     album = models.ForeignKey(Album, on_delete=models.CASCADE);
-    fie_type = models.CharField(max_length=10);
+    file_type = models.CharField(max_length=10);
     song_title = models.CharField(max_length=250);
+
+    def __str__(self):
+        return self.song_title;

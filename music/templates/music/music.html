@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome -Music</title>
+</head>
+<body>
+{% if all_albums %}
+    <h3>Here are my All Albums </h3>
+
+    <ul start="1">
+        {% for album in all_albums %}
+            <li><a href="/music/{{ album.id }}/">{{ album.album_title }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h1>
+        Sorry !something went wrong!!
+    </h1>
+{% endif %}
+
+</body>
+</html>
