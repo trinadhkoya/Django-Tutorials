@@ -10,7 +10,13 @@
 
     <ul start="1">
         {% for album in all_albums %}
-            <li><a href="/music/{{ album.id }}/">{{ album.album_title }}</a></li>
+            {#            this is not a good approach to have the hard coded URL.so we wanna make it dynamc .so we need togo urls.py#}
+            {#            in music dir.so what we did was we had already mentioned  name='detail in the urls.py  url(r'^(?P<album_id>[0-9]+)/$', views.detail, name='detail')#}
+            {#            in music right so what we will do is just place the name over here ,i mentioned the name as detail over here#}
+            {#            and if any param  and place if any param too like album.id i put down here#}
+            {#            ,#}
+
+            <li><a href="{% url 'detail' album.id %}">{{ album.album_title }}</a></li>
         {% endfor %}
     </ul>
 {% else %}

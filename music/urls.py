@@ -7,9 +7,8 @@ urlpatterns = [
     # /music/
     url(r'^$', views.music, name='music'),
 
-    # /music/71/
+    # /music/album_id/
     #  ^- represent begining and $ -represent ending
-
     url(r'^(?P<album_id>[0-9]+)/$', views.detail, name='detail'),
 
 ]
