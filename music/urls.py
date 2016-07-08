@@ -12,8 +12,10 @@ urlpatterns = [
     # /music/
     url(r'^$', views.music, name='music'),
 
-    # /music/album_id/
+    # /music/<album_id>/
     #  ^- represent begining and $ -represent ending
     url(r'^(?P<album_id>[0-9]+)/$', views.detail, name='detail'),
+    # add to favourite
+    url(r'^(?P<album_id>[0-9]+)/favorite/$', views.favorite, name='favorite'),
 
 ]
