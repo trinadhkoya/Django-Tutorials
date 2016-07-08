@@ -16,7 +16,7 @@
             {#            and if any param  and place if any param too like album.id i put down here#}
             {#            ,#}
 
-            <li><a href="{% url 'detail' album.id %}">{{ album.album_title }}</a></li>
+            <li><a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a></li>
         {% endfor %}
     </ul>
 {% else %}

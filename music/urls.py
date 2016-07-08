@@ -2,6 +2,11 @@ from django.conf.urls import url, include
 
 from . import views
 
+# in order to avoid the confusion like i have many sub apps like music ,video,chat for each detail is the view
+# in order to differenciate we are providing namespaces
+
+app_name = 'music'
+
 urlpatterns = [
 
     # /music/
