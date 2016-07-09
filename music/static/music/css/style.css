@@ -1,0 +1,6 @@
+body{
+    background: white url("../css/style.css");
+}
+.navbar{
+    border-radius: 0px;
+}

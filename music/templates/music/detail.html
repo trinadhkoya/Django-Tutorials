@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,12 +12,12 @@
 {% if error_message %}
     <p><strong>{{ error_message }}</strong></p>
 {% endif %}
-<form action="{% url 'music:favorite' album.id %}" method="POST">
+<form action="{% url 'music:favorite' album.id %}" method="post">
     {% csrf_token %}
     {% for song in album.song_set.all %}
 
 
-        <input type="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}">
+        <input type="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}"/>
         <label for="song{{ forloop.counter }}">
             {{ song.song_title }}
             {% if song.is_favorite %}
@@ -24,8 +25,6 @@
             {% endif %}
         </label>
         <br>
-
-        {#        <li>{{ song.song_title }}.{{ song.file_type }}</li>#}
     {% endfor %}
     <input type="submit" value="AddToFavourite">
 
